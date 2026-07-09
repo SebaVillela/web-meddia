@@ -1,4 +1,5 @@
 {
+  "alias": ["meddia.io", "www.meddia.io"],
   "cleanUrls": true,
   "trailingSlash": false,
   "headers": [
