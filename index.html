@@ -1937,12 +1937,21 @@ nav{
   padding:15px 18px;
   display:flex;flex-direction:column;gap:4px;
   opacity:0.92;
-  transition:border-color 0.6s, opacity 0.6s;
+  transition:transform 0.45s cubic-bezier(0.16,1,0.3,1), border-color 0.45s, opacity 0.45s, background 0.45s;
 }
+.frag:hover{
+  opacity:1;
+  transform:rotate(0deg) translateX(4px);
+  border-color:var(--ink-4);
+  background:rgba(31,27,23,0.02);
+}
+.frag:hover .frag-pain{color:var(--ink-3)}
 .frag:nth-of-type(1){transform:rotate(-0.4deg)}
 .frag:nth-of-type(2){transform:rotate(0.35deg)}
 .frag:nth-of-type(3){transform:rotate(-0.3deg)}
 .frag:nth-of-type(4){transform:rotate(0.45deg)}
+.frag:nth-of-type(1):hover,.frag:nth-of-type(2):hover,
+.frag:nth-of-type(3):hover,.frag:nth-of-type(4):hover{transform:rotate(0deg) translateX(4px)}
 .frag-name{
   font-family:'Fraunces',serif;font-weight:400;
   font-size:16px;color:var(--ink-2);
@@ -1950,6 +1959,7 @@ nav{
 }
 .frag-pain{
   font-size:12.5px;color:var(--ink-4);
+  transition:color 0.45s;
   letter-spacing:-0.005em;line-height:1.45;
 }
 
@@ -1973,13 +1983,14 @@ nav{
 }
 .platform-card{
   position:relative;width:100%;
-  background:transparent;
+  background:#FFFFFF;
   border:1px solid var(--rose-soft);
   border-radius:16px;
   padding:26px 26px 22px;
-  box-shadow:none;
-  transition:transform 0.7s cubic-bezier(0.16,1,0.3,1), border-color 0.7s cubic-bezier(0.16,1,0.3,1);
+  box-shadow:0 1px 2px rgba(31,27,23,0.03), 0 12px 32px rgba(31,27,23,0.06);
+  transition:transform 0.7s cubic-bezier(0.16,1,0.3,1), border-color 0.7s cubic-bezier(0.16,1,0.3,1), box-shadow 0.7s cubic-bezier(0.16,1,0.3,1);
 }
+.platform-card:hover{box-shadow:0 1px 2px rgba(31,27,23,0.03), 0 16px 40px rgba(31,27,23,0.09)}
 .platform-card:hover{
   transform:translateY(-2px);
   border-color:rgba(232,25,125,0.38);
@@ -2007,24 +2018,125 @@ nav{
   font-family:'Fraunces',serif;font-weight:500;
   font-size:26px;color:var(--ink);letter-spacing:-0.02em;
 }
+.platform-logo{
+  height:30px;width:auto;display:block;
+}
 .platform-mods{
   display:grid;grid-template-columns:1fr 1fr;gap:12px;
 }
 .pmod{
-  background:rgba(232,25,125,0.04);
-  border:1px solid rgba(232,25,125,0.10);
-  border-radius:10px;
-  padding:13px 15px;
-  display:flex;flex-direction:column;gap:3px;
+  background:#FFFFFF;
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:0 0 13px;
+  overflow:hidden;
+  display:flex;flex-direction:column;
 }
+.pmod-viz{
+  width:100%;
+  border-bottom:1px solid var(--line);
+  margin-bottom:11px;
+}
+.pmod:first-child{
+  background:linear-gradient(160deg, rgba(232,25,125,0.09) 0%, rgba(232,25,125,0.02) 100%);
+  border-color:rgba(232,25,125,0.18);
+}
+.pmod:first-child .pmod-viz{
+  background:linear-gradient(180deg, rgba(232,25,125,0.05), rgba(232,25,125,0));
+  border-bottom-color:rgba(232,25,125,0.10);
+}
+.pmod-viz svg{display:block;width:100%;height:auto}
 .pmod-step{
   font-family:'Fraunces',serif;font-style:italic;font-weight:300;
-  font-size:12.5px;color:var(--magenta);letter-spacing:-0.01em;
+  font-size:12.5px;color:var(--magenta);
+  letter-spacing:-0.01em;
+  padding:0 15px;margin-bottom:2px;
 }
 .pmod-name{
   font-family:'Fraunces',serif;font-weight:500;
-  font-size:15px;color:var(--ink);
+  font-size:15.5px;color:var(--ink);
   letter-spacing:-0.015em;line-height:1.2;
+  padding:0 15px;
+}
+
+/* ── Viñetas animadas (loops sutiles, corren solo con .live) ── */
+.pv-send{stroke-dasharray:150;stroke-dashoffset:150}
+.pv-dest{opacity:0.25;transform-origin:center;transform-box:fill-box}
+.pv-hl,.pv-check{opacity:0}
+.pv-live{transform-origin:center;transform-box:fill-box}
+.pv-bar{transform-origin:bottom;transform-box:fill-box;transform:scaleY(0.15)}
+.pv-arc{stroke-dasharray:120;stroke-dashoffset:120}
+.pv-needle{transform-origin:110px 54px;transform:rotate(-64deg)}
+
+.consol.live .pv-send{animation:pvSend 5.5s cubic-bezier(0.16,1,0.3,1) infinite}
+.consol.live .pv-send.s2{animation-delay:0.25s}
+.consol.live .pv-send.s3{animation-delay:0.5s}
+.consol.live .pv-dest{animation:pvDest 5.5s ease infinite}
+.consol.live .pv-dest.d1{animation-delay:0.55s}
+.consol.live .pv-dest.d2{animation-delay:0.8s}
+.consol.live .pv-dest.d3{animation-delay:1.05s}
+
+.consol.live .pv-live{animation:pvLive 2.2s ease-in-out infinite}
+.consol.live .pv-hl{animation:pvHl 6s ease infinite}
+.consol.live .pv-hl.h2{animation-delay:0.7s}
+.consol.live .pv-hl.h3{animation-delay:1.4s}
+
+.consol.live .pv-arc{animation:pvArc 6.5s cubic-bezier(0.16,1,0.3,1) infinite;animation-delay:0.4s}
+.consol.live .pv-needle{animation:pvNeedle 6.5s cubic-bezier(0.16,1,0.3,1) infinite;animation-delay:0.4s}
+
+.consol.live .pv-bar{animation:pvBar 6s cubic-bezier(0.16,1,0.3,1) infinite}
+.consol.live .pv-bar.b2{animation-delay:0.15s}
+.consol.live .pv-bar.b3{animation-delay:0.3s}
+.consol.live .pv-bar.b4{animation-delay:0.45s}
+.consol.live .pv-check{animation:pvCheck 6s ease infinite;animation-delay:1s}
+
+@keyframes pvSend{
+  0%{stroke-dashoffset:150}
+  22%,78%{stroke-dashoffset:0}
+  100%{stroke-dashoffset:-150}
+}
+@keyframes pvDest{
+  0%,8%{opacity:0.25;transform:scale(1)}
+  16%{opacity:1;transform:scale(1.25)}
+  22%,80%{opacity:1;transform:scale(1)}
+  100%{opacity:0.25;transform:scale(1)}
+}
+@keyframes pvLive{
+  0%,100%{opacity:1}
+  50%{opacity:0.35}
+}
+@keyframes pvHl{
+  0%,4%{opacity:0;transform:translateY(4px)}
+  14%,82%{opacity:1;transform:translateY(0)}
+  94%,100%{opacity:0;transform:translateY(0)}
+}
+@keyframes pvArc{
+  0%{stroke-dashoffset:120}
+  30%,82%{stroke-dashoffset:55}
+  100%{stroke-dashoffset:120}
+}
+@keyframes pvNeedle{
+  0%{transform:rotate(-64deg)}
+  30%{transform:rotate(14deg)}
+  45%{transform:rotate(8deg)}
+  60%,82%{transform:rotate(11deg)}
+  100%{transform:rotate(-64deg)}
+}
+@keyframes pvBar{
+  0%,6%{transform:scaleY(0.15)}
+  26%,84%{transform:scaleY(1)}
+  100%{transform:scaleY(0.15)}
+}
+@keyframes pvCheck{
+  0%,6%{opacity:0;transform:translateY(3px)}
+  16%,86%{opacity:1;transform:translateY(0)}
+  100%{opacity:0;transform:translateY(0)}
+}
+@media (prefers-reduced-motion: reduce){
+  .consol.live .pv-send,.consol.live .pv-dest,.consol.live .pv-live,.consol.live .pv-hl,
+  .consol.live .pv-arc,.consol.live .pv-needle,.consol.live .pv-bar,.consol.live .pv-check{animation:none}
+  .pv-send{stroke-dashoffset:0}.pv-dest,.pv-hl,.pv-check{opacity:1}
+  .pv-bar{transform:scaleY(1)}.pv-arc{stroke-dashoffset:55}.pv-needle{transform:rotate(11deg)}
 }
 .platform-more{
   margin-top:16px;padding-top:15px;
@@ -2036,6 +2148,12 @@ nav{
   font-family:'Fraunces',serif;font-weight:500;font-style:italic;
   font-size:13px;color:var(--magenta);margin-right:6px;
 }
+.platform-title{
+  margin-left:auto;text-align:right;
+  font-family:'Fraunces',serif;font-weight:400;
+  font-size:16px;color:var(--ink);letter-spacing:-0.015em;line-height:1.25;
+}
+.platform-title em{font-style:italic;color:var(--magenta)}
 
 /* Cierre de la sección */
 .consol-foot{
@@ -2471,7 +2589,7 @@ footer{
 }
 
 /* ── Footer newsletter ── */
-.footer-newsletter-col{display:flex;flex-direction:column;gap:16px;grid-column:span 2}
+.footer-newsletter-col{display:flex;flex-direction:column;gap:16px;grid-column:3 / -1;justify-self:end;align-items:flex-end;text-align:right}
 .footer-newsletter-desc{font-size:14px;color:var(--ink-4);line-height:1.55;letter-spacing:-0.005em;max-width:420px}
 .footer-newsletter-form{display:flex;flex-direction:column;gap:10px}
 .footer-newsletter-row{display:flex;gap:10px;flex-wrap:wrap}
@@ -2515,7 +2633,7 @@ footer{
 <nav>
   <div class="nav-inner">
     <a href="/" class="nav-logo" aria-label="Meddia">
-      <img src="assets/img-01.png" alt="Meddia">
+      <img src="assets/logo-meddia.png" alt="Meddia">
     </a>
     <div class="nav-mid">
       <ul class="nav-links">
@@ -2753,33 +2871,31 @@ footer{
 <section class="soluciones" id="soluciones">
   <div class="section-container">
     <div class="section-eyebrow">Así se construye</div>
-    <h2 class="section-h2 soluciones-h2">De los medios a la <em>IA.</em> Una sola plataforma.</h2>
+    <h2 class="section-h2 soluciones-h2">De los medios a la IA. <em>Una sola plataforma.</em></h2>
 
     <p class="soluciones-intro fade-up">Meddia integra la gestión de prensa, el monitoreo de medios, la reputación en agentes de IA y la automatización de procesos en una única plataforma. Sustituye herramientas aisladas, elimina tareas manuales y conecta toda tu operación de comunicaciones.</p>
 
     <div class="sol-list">
-      <div class="sol-row fade-up sol-row--preview" id="sol-ia">
+      <div class="sol-row fade-up" id="sol-ia">
         <div class="sol-num">i</div>
         <div class="sol-content">
           <div class="sol-name">Reputación en agentes de IA</div>
           <p class="sol-desc">Descubre qué dicen ChatGPT, Gemini, Claude y otros asistentes sobre tu marca. Mide tu reputación con indicadores propios. Identifica y activa oportunidades de mejora.</p>
         </div>
-        <button class="sol-preview-btn" aria-label="Ver módulo" onclick="openSolModal()">
-          <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M1 8s2.5-5 7-5 7 5 7 5-2.5 5-7 5-7-5-7-5Z" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="8" cy="8" r="2" stroke="currentColor" stroke-width="1.4"/></svg>
-          <span>Ver módulo</span>
-        </button>
+        <div class="sol-arrow">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M8.5 3.5L13 8l-4.5 4.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
       </div>
 
-      <div class="sol-row fade-up sol-row--preview" id="sol-prensa">
+      <div class="sol-row fade-up" id="sol-prensa">
         <div class="sol-num">ii</div>
         <div class="sol-content">
           <div class="sol-name">Gestión de prensa</div>
           <p class="sol-desc">Activa la difusión de comunicados, estudios y columnas a una base curada de más de 2.000 medios y periodistas chilenos para maximizar tu cobertura e impacto.</p>
         </div>
-        <button class="sol-preview-btn" aria-label="Ver módulo" onclick="openPrModal()">
-          <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M1 8s2.5-5 7-5 7 5 7 5-2.5 5-7 5-7-5-7-5Z" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="8" cy="8" r="2" stroke="currentColor" stroke-width="1.4"/></svg>
-          <span>Ver módulo</span>
-        </button>
+        <div class="sol-arrow">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M8.5 3.5L13 8l-4.5 4.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
       </div>
 
       <div class="sol-row fade-up">
@@ -2827,32 +2943,32 @@ footer{
           <div class="sol-modal-track" id="solTrack">
             <div class="sol-modal-slide is-active">
               <div class="sol-modal-screen">
-                <img src="assets/img-02.png" alt="Vista de proyectos" draggable="false"/>
+                <img loading="lazy" decoding="async" src="assets/modal-proyectos.png" alt="Vista de proyectos" draggable="false"/>
               </div>
               <div class="sol-modal-caption"><span class="sol-modal-cap-num">01</span><span><strong>Proyectos</strong> — Gestiona múltiples marcas y ejecuta análisis comparables a lo largo del tiempo.</span></div>
             </div>
           
             <div class="sol-modal-slide">
               <div class="sol-modal-screen">
-                <img src="assets/img-03.png" alt="IA Reputation Index" draggable="false"/>
+                <img loading="lazy" decoding="async" src="assets/modal-ia-index.png" alt="IA Reputation Index" draggable="false"/>
               </div>
               <div class="sol-modal-caption"><span class="sol-modal-cap-num">02</span><span><strong>IA Reputation Index</strong> — Tu índice de reputación relativo frente a la competencia, con diagnóstico por agente.</span></div>
             </div>
             <div class="sol-modal-slide">
               <div class="sol-modal-screen">
-                <img src="assets/img-04.png" alt="Share of Voice comparativo" draggable="false"/>
+                <img loading="lazy" decoding="async" src="assets/modal-share-of-voice.png" alt="Share of Voice comparativo" draggable="false"/>
               </div>
               <div class="sol-modal-caption"><span class="sol-modal-cap-num">03</span><span><strong>Share of Voice</strong> — Tu posición frente a la competencia en cada motor de IA.</span></div>
             </div>
             <div class="sol-modal-slide">
               <div class="sol-modal-screen">
-                <img src="assets/img-05.png" alt="Visibilidad por agente IA" draggable="false"/>
+                <img loading="lazy" decoding="async" src="assets/modal-visibilidad-agentes.png" alt="Visibilidad por agente IA" draggable="false"/>
               </div>
               <div class="sol-modal-caption"><span class="sol-modal-cap-num">04</span><span><strong>Por agente IA</strong> — Share of Voice desagregado en ChatGPT, Gemini, Claude y Perplexity.</span></div>
             </div>
             <div class="sol-modal-slide">
               <div class="sol-modal-screen">
-                <img src="assets/img-06.png" alt="Plan de acción por prioridad" draggable="false"/>
+                <img loading="lazy" decoding="async" src="assets/modal-plan-accion.png" alt="Plan de acción por prioridad" draggable="false"/>
               </div>
               <div class="sol-modal-caption"><span class="sol-modal-cap-num">05</span><span><strong>Plan de acción</strong> — Quick wins, mediana prioridad y alto impacto, priorizados automáticamente.</span></div>
             </div></div>
@@ -2893,7 +3009,7 @@ footer{
           <div class="sol-modal-track" id="prTrack">
             <div class="sol-modal-slide is-active">
               <div class="sol-modal-screen">
-                <img src="assets/img-07.png" alt="Dashboard de gestión de prensa" draggable="false"/>
+                <img loading="lazy" decoding="async" src="assets/modal-dashboard-prensa.png" alt="Dashboard de gestión de prensa" draggable="false"/>
               </div>
               <div class="sol-modal-caption"><span class="sol-modal-cap-num">01</span><span><strong>Dashboard</strong> — Publicaciones, medios contactados, aperturas, alcance y valorización en tiempo real.</span></div>
             </div>
@@ -2927,22 +3043,22 @@ footer{
   <div class="trust-label">Confían en Meddia</div>
   <div class="trust-marquee">
     <div class="trust-track">
-        <img class="trust-logo trust-logo--santo_tomas" src="assets/img-08.png" alt="Universidad Santo Tomás" aria-hidden="false">
-        <img class="trust-logo trust-logo--rewilding" src="assets/img-09.png" alt="Fundación Rewilding Chile" aria-hidden="false">
-        <img class="trust-logo trust-logo--greenhub" src="assets/img-10.png" alt="El Green Hub" aria-hidden="false">
-        <img class="trust-logo trust-logo--blackboard" src="assets/img-11.png" alt="Blackboard" aria-hidden="false">
-        <img class="trust-logo trust-logo--bendito_residuo" src="assets/img-12.png" alt="Bendito Residuo" aria-hidden="false">
-        <img class="trust-logo trust-logo--ventus" src="assets/img-13.png" alt="Ventus Corredores de Seguros" loading="lazy" decoding="async">
-        <img class="trust-logo trust-logo--sonda" src="assets/img-14.png" alt="SONDA" loading="lazy" decoding="async">
+        <img loading="lazy" decoding="async" class="trust-logo trust-logo--santo_tomas" src="assets/cliente-santo-tomas.png" alt="Universidad Santo Tomás" aria-hidden="false">
+        <img loading="lazy" decoding="async" class="trust-logo trust-logo--rewilding" src="assets/cliente-rewilding.png" alt="Fundación Rewilding Chile" aria-hidden="false">
+        <img loading="lazy" decoding="async" class="trust-logo trust-logo--greenhub" src="assets/cliente-greenhub.png" alt="El Green Hub" aria-hidden="false">
+        <img loading="lazy" decoding="async" class="trust-logo trust-logo--blackboard" src="assets/cliente-blackboard.png" alt="Blackboard" aria-hidden="false">
+        <img loading="lazy" decoding="async" class="trust-logo trust-logo--bendito_residuo" src="assets/cliente-bendito-residuo.png" alt="Bendito Residuo" aria-hidden="false">
+        <img class="trust-logo trust-logo--ventus" src="assets/cliente-ventus.png" alt="Ventus Corredores de Seguros" loading="lazy" decoding="async">
+        <img class="trust-logo trust-logo--sonda" src="assets/cliente-sonda.png" alt="SONDA" loading="lazy" decoding="async">
     </div>
     <div class="trust-track" aria-hidden="true">
-        <img class="trust-logo trust-logo--santo_tomas" src="assets/img-15.png" alt="Universidad Santo Tomás" aria-hidden="true">
-        <img class="trust-logo trust-logo--rewilding" src="assets/img-16.png" alt="Fundación Rewilding Chile" aria-hidden="true">
-        <img class="trust-logo trust-logo--greenhub" src="assets/img-17.png" alt="El Green Hub" aria-hidden="true">
-        <img class="trust-logo trust-logo--blackboard" src="assets/img-18.png" alt="Blackboard" aria-hidden="true">
-        <img class="trust-logo trust-logo--bendito_residuo" src="assets/img-19.png" alt="Bendito Residuo" aria-hidden="true">
-        <img class="trust-logo trust-logo--ventus" src="assets/img-20.png" alt="Ventus Corredores de Seguros" loading="lazy" decoding="async">
-        <img class="trust-logo trust-logo--sonda" src="assets/img-21.png" alt="SONDA" loading="lazy" decoding="async">
+        <img loading="lazy" decoding="async" class="trust-logo trust-logo--santo_tomas" src="assets/cliente-santo-tomas.png" alt="Universidad Santo Tomás" aria-hidden="true">
+        <img loading="lazy" decoding="async" class="trust-logo trust-logo--rewilding" src="assets/cliente-rewilding.png" alt="Fundación Rewilding Chile" aria-hidden="true">
+        <img loading="lazy" decoding="async" class="trust-logo trust-logo--greenhub" src="assets/cliente-greenhub.png" alt="El Green Hub" aria-hidden="true">
+        <img loading="lazy" decoding="async" class="trust-logo trust-logo--blackboard" src="assets/cliente-blackboard.png" alt="Blackboard" aria-hidden="true">
+        <img loading="lazy" decoding="async" class="trust-logo trust-logo--bendito_residuo" src="assets/cliente-bendito-residuo.png" alt="Bendito Residuo" aria-hidden="true">
+        <img class="trust-logo trust-logo--ventus" src="assets/cliente-ventus.png" alt="Ventus Corredores de Seguros" loading="lazy" decoding="async">
+        <img class="trust-logo trust-logo--sonda" src="assets/cliente-sonda.png" alt="SONDA" loading="lazy" decoding="async">
     </div>
   </div>
 </section>
@@ -2999,14 +3115,13 @@ footer{
   <div class="section-container">
     <div class="section-eyebrow">Consolidación</div>
     <h2 class="section-h2 consol-h2">Consolida herramientas <em>en un solo flujo.</em></h2>
-    <p class="consol-sub fade-up">Meddia cumple las funciones de tu software de monitoreo, tu plataforma de envíos, tu herramienta de presencia en IA y tus reportes en Excel y PowerPoint. Todo conectado, en una sola plataforma: menos suscripciones, menos costos.</p>
+    <p class="consol-sub fade-up">Meddia cumple las funciones de tu software de monitoreo, tu plataforma de envíos, tu herramienta de presencia en IA y tus reportes en Excel y PowerPoint. Todo conectado, en una sola plataforma: menos suscripciones, menos costos, una operación más eficiente.</p>
 
     <div class="consol-stage">
       <!-- Encabezados -->
       <div class="consol-colhead fade-up">Hoy: herramientas dispersas</div>
       <div class="consol-colhead-mid" aria-hidden="true"></div>
-      <div class="consol-colhead right fade-up">Con Meddia: una sola plataforma</div>
-
+      
       <!-- Izquierda: 4 herramientas fragmentadas -->
       <div class="consol-fragments">
         <div class="frag fade-up">
@@ -3022,7 +3137,7 @@ footer{
           <div class="frag-pain">Otra suscripción, otro login.</div>
         </div>
         <div class="frag fade-up d3">
-          <div class="frag-name">Excel + PowerPoint</div>
+          <div class="frag-name">Reportes con Excel + PowerPoint</div>
           <div class="frag-pain">Horas armando reportes cada mes.</div>
         </div>
       </div>
@@ -3051,23 +3166,78 @@ footer{
         <div class="platform-card fade-up d2">
           <div class="platform-badge">1 plataforma · 1 login</div>
           <div class="platform-head">
-            <span class="platform-node" aria-hidden="true"></span>
-            <span class="platform-brand">Meddia</span>
+            <img class="platform-logo" src="assets/logo-meddia.png" alt="Meddia">
+            <div class="platform-title">Un solo centro de control <em>de tu reputación.</em></div>
           </div>
           <div class="platform-mods">
             <div class="pmod">
-              <div class="pmod-step">i · Distribuye</div>
-              <div class="pmod-name">Gestión de prensa</div>
-            </div>
-            <div class="pmod">
-              <div class="pmod-step">ii · Monitorea</div>
-              <div class="pmod-name">Monitoreo de Medios</div>
-            </div>
-            <div class="pmod">
-              <div class="pmod-step">iii · Analiza</div>
+              <div class="pmod-viz" aria-hidden="true">
+                <svg viewBox="0 0 220 64">
+                  <path d="M74,54 A38,38 0 0 1 146,54" fill="none" stroke="var(--magenta-tint)" stroke-width="8" stroke-linecap="round"/>
+                  <path class="pv-arc" d="M74,54 A38,38 0 0 1 146,54" fill="none" stroke="var(--magenta)" stroke-width="8" stroke-linecap="round"/>
+                  <g class="pv-needle">
+                    <line x1="110" y1="54" x2="110" y2="26" stroke="var(--ink-2)" stroke-width="2" stroke-linecap="round"/>
+                  </g>
+                  <circle cx="110" cy="54" r="4" fill="var(--ink)"/>
+                </svg>
+              </div>
+              <div class="pmod-step">i · Analiza</div>
               <div class="pmod-name">Reputación en IA</div>
             </div>
             <div class="pmod">
+              <div class="pmod-viz" aria-hidden="true">
+                <svg viewBox="0 0 220 64">
+                  <rect x="10" y="14" width="52" height="36" rx="5" fill="var(--magenta-tint)" stroke="var(--rose-soft)"/>
+                  <rect x="18" y="22" width="30" height="3" rx="1.5" fill="var(--magenta)" opacity="0.75"/>
+                  <rect x="18" y="30" width="36" height="2.5" rx="1.25" fill="var(--ink-5)"/>
+                  <rect x="18" y="36" width="26" height="2.5" rx="1.25" fill="var(--ink-5)"/>
+                  <path class="pv-send s1" d="M62,32 C110,10 150,10 186,14" fill="none" stroke="var(--rose-soft)" stroke-width="1.4" stroke-linecap="round"/>
+                  <path class="pv-send s2" d="M62,32 C112,32 150,32 186,32" fill="none" stroke="var(--rose-soft)" stroke-width="1.4" stroke-linecap="round"/>
+                  <path class="pv-send s3" d="M62,32 C110,54 150,54 186,50" fill="none" stroke="var(--rose-soft)" stroke-width="1.4" stroke-linecap="round"/>
+                  <circle class="pv-dest d1" cx="194" cy="14" r="5" fill="var(--magenta)"/>
+                  <circle class="pv-dest d2" cx="194" cy="32" r="5" fill="var(--magenta)"/>
+                  <circle class="pv-dest d3" cx="194" cy="50" r="5" fill="var(--magenta)"/>
+                </svg>
+              </div>
+              <div class="pmod-step">ii · Distribuye</div>
+              <div class="pmod-name">Gestión de prensa</div>
+            </div>
+            <div class="pmod">
+              <div class="pmod-viz" aria-hidden="true">
+                <svg viewBox="0 0 220 64">
+                  <circle class="pv-live" cx="18" cy="15" r="4" fill="var(--magenta)"/>
+                  <g class="pv-hl h1">
+                    <rect x="32" y="11" width="120" height="4" rx="2" fill="var(--ink-4)"/>
+                    <rect x="158" y="11" width="30" height="4" rx="2" fill="var(--rose-soft)"/>
+                  </g>
+                  <g class="pv-hl h2">
+                    <rect x="32" y="29" width="96" height="4" rx="2" fill="var(--ink-4)"/>
+                    <rect x="134" y="29" width="42" height="4" rx="2" fill="var(--rose-soft)"/>
+                  </g>
+                  <g class="pv-hl h3">
+                    <rect x="32" y="47" width="138" height="4" rx="2" fill="var(--ink-4)"/>
+                    <rect x="176" y="47" width="24" height="4" rx="2" fill="var(--rose-soft)"/>
+                  </g>
+                  <circle class="pv-dot k1" cx="18" cy="30.5" r="2.5" fill="var(--ink-5)"/>
+                  <circle class="pv-dot k2" cx="18" cy="48.5" r="2.5" fill="var(--ink-5)"/>
+                </svg>
+              </div>
+              <div class="pmod-step">iii · Monitorea</div>
+              <div class="pmod-name">Monitoreo de Medios</div>
+            </div>
+            <div class="pmod">
+              <div class="pmod-viz" aria-hidden="true">
+                <svg viewBox="0 0 220 64">
+                  <rect class="pv-bar b1" x="36" y="20" width="14" height="34" rx="3" fill="var(--rose-soft)"/>
+                  <rect class="pv-bar b2" x="62" y="12" width="14" height="42" rx="3" fill="var(--magenta)" opacity="0.55"/>
+                  <rect class="pv-bar b3" x="88" y="26" width="14" height="28" rx="3" fill="var(--rose-soft)"/>
+                  <rect class="pv-bar b4" x="114" y="8" width="14" height="46" rx="3" fill="var(--magenta)"/>
+                  <g class="pv-check">
+                    <circle cx="176" cy="26" r="14" fill="var(--magenta-tint)" stroke="var(--rose-soft)"/>
+                    <path d="M169.5,26 L174,30.5 L183,21.5" fill="none" stroke="var(--magenta)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+                  </g>
+                </svg>
+              </div>
               <div class="pmod-step">iv · Reporta</div>
               <div class="pmod-name">Reportería automatizada</div>
             </div>
@@ -3080,19 +3250,15 @@ footer{
       </div>
     </div>
 
-    <div class="consol-foot fade-up">
-      <div class="consol-foot-line">Cuatro herramientas <em>se vuelven una.</em></div>
-      <div class="consol-foot-meta">Una plataforma. Un login. Un solo reporte. Menos costos. <em>Mejores resultados.</em></div>
     </div>
-  </div>
 </section>
 
 
 <!-- CTA FINAL -->
 <section class="cta-final">
   <div class="section-container">
-    <div class="section-eyebrow">Reputación en la era de la IA</div>
-    <h2 class="section-h2 cta-h2">No es azar. Es estrategia. <em>Comienza ahora.</em></h2>
+    <div class="section-eyebrow">Somos Meddia</div>
+    <h2 class="section-h2 cta-h2">Tu reputación en IA y medios, <em>una sola plataforma.</em></h2>
     <p class="cta-sub">Gestiona la relación con los medios, monitorea tu impacto, fortalece tu reputación en agentes de IA y automatiza tu operación de comunicaciones desde una sola plataforma.</p>
     <div class="cta-actions">
       <a href="https://tools.meddia.io/meetings/meddiacloud/reunion-demo-meddiacloud" class="btn-cream">
@@ -3108,7 +3274,7 @@ footer{
   <div class="footer-in">
     <div class="footer-top">
       <div>
-        <a href="/" class="footer-logo"><img src="assets/img-22.png" alt="Meddia"></a>
+        <a href="/" class="footer-logo"><img src="assets/logo-meddia.png" alt="Meddia"></a>
         <p class="footer-claim">Tecnología para gestionar la reputación en la era de la IA.</p>
         <div class="footer-socials">
           <a href="#" class="social-btn" aria-label="LinkedIn"><svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor"><path d="M3.2 2C3.2 2.88 2.48 3.6 1.6 3.6S0 2.88 0 2 .72.4 1.6.4 3.2 1.12 3.2 2zM0 5h3.2v9H0V5zm5.1 0H8v1.2c.5-.9 1.6-1.4 2.8-1.4 2.5 0 3.2 1.6 3.2 3.8V14h-3.2V9.5c0-.9 0-2.1-1.3-2.1s-1.5 1-1.5 2v4.6H5.1V5z"/></svg></a>
@@ -3117,7 +3283,7 @@ footer{
       </div>
       <div class="footer-newsletter-col">
         <div class="footer-col-ttl">IA, reputación y comunicación</div>
-        <p class="footer-newsletter-desc">Análisis sobre cómo los agentes de IA están redefiniendo la reputación corporativa. Sin spam.</p>
+        <p class="footer-newsletter-desc">Noticias y análisis sobre cómo la IA está redefiniendo la reputación corporativa. Sin spam.</p>
         <form class="footer-newsletter-form" onsubmit="footerNewsletterSubmit(event)">
           <div class="footer-newsletter-row">
             <input type="email" class="footer-newsletter-input" placeholder="tu@email.com" required autocomplete="email"/>
@@ -3142,6 +3308,17 @@ const obs = new IntersectionObserver((entries) => {
   entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
 }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
 document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+
+// Viñetas vivas de Consolidación: animar solo cuando la sección es visible
+(function(){
+  var sec = document.getElementById('consolidacion');
+  if(!sec) return;
+  new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      sec.classList.toggle('live', e.isIntersecting);
+    });
+  }, { threshold: 0.25 }).observe(sec);
+})();
 
 // Suscripción inline en la barra superior
 (function(){
