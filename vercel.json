@@ -2,6 +2,11 @@
   "alias": ["meddia.io", "www.meddia.io"],
   "cleanUrls": true,
   "trailingSlash": false,
+  "functions": {
+    "api/chat.js": {
+      "includeFiles": "meddia_knowledge_base.md"
+    }
+  },
   "headers": [
     {
       "source": "/(.*)",
