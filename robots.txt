@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Bloquear acceso a la API (no indexable)
+Disallow: /api/
+
+Sitemap: https://www.meddia.io/sitemap.xml

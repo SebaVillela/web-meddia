@@ -3,6 +3,83 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Meddia es la plataforma SaaS para gestionar comunicación corporativa en la era de la IA. Mide y mejora tu reputación en ChatGPT, Gemini y Perplexity, distribuye comunicados de prensa a +2.000 medios y automatiza tu operación desde un solo lugar.">
+<link rel="canonical" href="https://www.meddia.io/">
+<meta property="og:title" content="Meddia — Tecnología para gestionar la reputación en la era de la IA">
+<meta property="og:description" content="Mide y mejora tu reputación en ChatGPT, Gemini y Perplexity. Distribuye comunicados de prensa a +2.000 medios. Una sola plataforma para todo el ciclo de comunicación corporativa.">
+<meta property="og:url" content="https://www.meddia.io/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://www.meddia.io/assets/og-meddia.png">
+<meta property="og:site_name" content="Meddia">
+<meta property="og:locale" content="es_CL">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Meddia — Tecnología para gestionar la reputación en la era de la IA">
+<meta name="twitter:description" content="Mide y mejora tu reputación en ChatGPT, Gemini y Perplexity. Una sola plataforma para todo el ciclo de comunicación corporativa.">
+<meta name="twitter:image" content="https://www.meddia.io/assets/og-meddia.png">
+<meta name="robots" content="index, follow">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%232A1825'/><text y='72' x='50' font-size='58' text-anchor='middle' fill='%23E8197D'>M</text></svg>">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.meddia.io/#organization",
+      "name": "Meddia",
+      "alternateName": "Press Hub SpA",
+      "url": "https://www.meddia.io",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.meddia.io/assets/logo-meddia.png"
+      },
+      "description": "Plataforma SaaS B2B para gestión de comunicación corporativa y reputación en la era de la IA.",
+      "foundingLocation": "Santiago, Chile",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Américo Vespucio Sur 700 piso 4",
+        "addressLocality": "Las Condes",
+        "addressRegion": "Santiago",
+        "addressCountry": "CL"
+      },
+      "taxID": "77.861.768-4"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://www.meddia.io/#product",
+      "name": "Meddia",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "url": "https://www.meddia.io",
+      "description": "Plataforma para gestionar comunicación corporativa, distribución de prensa, monitoreo de medios y reputación en agentes de IA.",
+      "featureList": [
+        "Reputación en agentes de IA (ChatGPT, Gemini, Perplexity, Claude)",
+        "Gestión y distribución de comunicados de prensa a +2.000 medios",
+        "Monitoreo e inteligencia de medios con análisis de IA",
+        "Agentes IA especializados en comunicaciones",
+        "Reportería automatizada"
+      ],
+      "publisher": {"@id": "https://www.meddia.io/#organization"}
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.meddia.io/#website",
+      "url": "https://www.meddia.io",
+      "name": "Meddia",
+      "publisher": {"@id": "https://www.meddia.io/#organization"}
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.meddia.io/#webpage",
+      "url": "https://www.meddia.io/",
+      "name": "Meddia — Tecnología para gestionar la reputación en la era de la IA",
+      "description": "Mide y mejora tu reputación en ChatGPT, Gemini y Perplexity. Distribuye comunicados de prensa a +2.000 medios. Una sola plataforma para todo el ciclo de comunicación corporativa.",
+      "isPartOf": {"@id": "https://www.meddia.io/#website"},
+      "about": {"@id": "https://www.meddia.io/#product"},
+      "inLanguage": "es-CL"
+    }
+  ]
+}
+</script>
 <title>Meddia — Tecnología para gestionar la reputación en la era de la IA</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1868,6 +1945,27 @@ nav{
 }
 
 /* Underline animado: en vez de border-bottom estático, una línea que crece */
+
+/* ── Acciones por perfil · Ver planes + Chatear con ventas ── */
+.perfil-actions{
+  margin-top:auto;padding-top:32px;
+  display:flex;gap:10px;flex-wrap:wrap;
+}
+.perfil-btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:7px;
+  font-size:13.5px;font-weight:450;letter-spacing:-0.005em;
+  padding:11px 17px;border-radius:8px;
+  text-decoration:none;cursor:pointer;white-space:nowrap;
+  transition:background 0.25s ease,border-color 0.25s ease,color 0.25s ease;
+}
+.perfil-btn svg{flex-shrink:0}
+.perfil-btn--primary{background:var(--ink);color:var(--paper);border:1px solid var(--ink)}
+.perfil-btn--primary:hover{background:var(--magenta);border-color:var(--magenta)}
+.perfil-btn--primary svg{transition:transform 0.25s ease}
+.perfil-btn--primary:hover svg{transform:translateX(3px)}
+.perfil-btn--ghost{background:transparent;color:var(--ink-2);border:1px solid var(--line)}
+.perfil-btn--ghost:hover{border-color:var(--magenta);color:var(--magenta)}
+
 .perfil-cta::after{
   content:'';
   position:absolute;
@@ -1882,7 +1980,28 @@ nav{
 }
 
 .perfil:hover .perfil-cta{color:var(--magenta)}
-.perfil:hover .perfil-cta::after{background:var(--magenta)}
+.perfil:hover 
+/* ── Acciones por perfil · Ver planes + Chatear con ventas ── */
+.perfil-actions{
+  margin-top:auto;padding-top:32px;
+  display:flex;gap:10px;flex-wrap:wrap;
+}
+.perfil-btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:7px;
+  font-size:13.5px;font-weight:450;letter-spacing:-0.005em;
+  padding:11px 17px;border-radius:8px;
+  text-decoration:none;cursor:pointer;white-space:nowrap;
+  transition:background 0.25s ease,border-color 0.25s ease,color 0.25s ease;
+}
+.perfil-btn svg{flex-shrink:0}
+.perfil-btn--primary{background:var(--ink);color:var(--paper);border:1px solid var(--ink)}
+.perfil-btn--primary:hover{background:var(--magenta);border-color:var(--magenta)}
+.perfil-btn--primary svg{transition:transform 0.25s ease}
+.perfil-btn--primary:hover svg{transform:translateX(3px)}
+.perfil-btn--ghost{background:transparent;color:var(--ink-2);border:1px solid var(--line)}
+.perfil-btn--ghost:hover{border-color:var(--magenta);color:var(--magenta)}
+
+.perfil-cta::after{background:var(--magenta)}
 
 .perfil-cta svg{transition:transform 0.7s cubic-bezier(0.16, 1, 0.3, 1)}
 .perfil:hover .perfil-cta svg{transform:translateX(5px)}
@@ -2620,6 +2739,31 @@ footer{
   transition:background 0.2s;
 }
 .footer-newsletter-btn:hover{background:var(--magenta)}
+
+/* Proof ubicado sobre el calendario */
+.cta-proof--top{margin-top:0;margin-bottom:0}
+/* Calendario HubSpot incrustado */
+.cta-calendar{
+  max-width:920px;margin:44px auto 0;
+  min-height:660px;text-align:left;
+}
+.cta-calendar .meetings-iframe-container{width:100%}
+.cta-calendar iframe{width:100%!important;border:0;display:block}
+
+/* ── Footer columnas ── */
+.footer-top{display:grid;grid-template-columns:1fr auto auto 1fr;gap:48px;align-items:start}
+.footer-col-ttl{
+  font-size:11px;font-weight:500;
+  letter-spacing:0.08em;text-transform:uppercase;
+  color:var(--ink-4);margin-bottom:20px;
+}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:12px}
+.footer-links a{
+  font-size:14px;color:var(--ink-2);
+  text-decoration:none;transition:color 0.2s;letter-spacing:-0.005em;
+}
+.footer-links a:hover{color:var(--magenta)}
+
 .footer-newsletter-ok{
   font-size:13px;color:var(--magenta);
   letter-spacing:-0.005em;
@@ -2637,10 +2781,91 @@ footer{
     </a>
     <div class="nav-mid">
       <ul class="nav-links">
+        <li><a href="/"><span class="nav-link-inner"><span class="nav-link-text">Inicio</span><span class="nav-link-text nav-link-text--alt">Inicio</span></span></a></li>
+        <li class="nav-has-dropdown" data-module="soluciones" style="display:none">
+          <a href="#soluciones" class="nav-drop-trigger">
+            <span class="nav-link-inner"><span class="nav-link-text">Soluciones</span><span class="nav-link-text nav-link-text--alt">Soluciones</span></span>
+            <svg class="nav-caret" width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M2.5 4L5.5 7L8.5 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <div class="nav-dropdown">
+            <div class="nav-mega">
+              <a href="/reputacion-ia" class="nav-mega-item">
+                <span class="nav-mega-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2.5l1.6 4 4 1.6-4 1.6L10 13.7 8.4 9.7l-4-1.6 4-1.6L10 2.5z"/><path d="M15.5 13.5l.7 1.8 1.8.7-1.8.7-.7 1.8-.7-1.8-1.8-.7 1.8-.7.7-1.8z"/></svg></span>
+                <span class="nav-mega-txt">
+                  <span class="nav-mega-title">Reputación en IA<svg class="nav-mega-arrow" width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="nav-mega-desc">Mide y mejora tu presencia en ChatGPT, Gemini, Perplexity y Claude.</span>
+                </span>
+              </a>
+              <a href="/gestion-de-prensa" class="nav-mega-item">
+                <span class="nav-mega-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3L2.5 8.2l5.6 2 2 5.6L17 3z"/><path d="M8.1 10.2L11 7.3"/></svg></span>
+                <span class="nav-mega-txt">
+                  <span class="nav-mega-title">Gestión de prensa<svg class="nav-mega-arrow" width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="nav-mega-desc">Distribuye comunicados a +2.000 medios y reporta resultados.</span>
+                </span>
+              </a>
+              <a href="/monitoreo-inteligencia-medios" class="nav-mega-item">
+                <span class="nav-mega-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 10.5h3l2-5 3 9 2-6 1.5 2H18"/></svg></span>
+                <span class="nav-mega-txt">
+                  <span class="nav-mega-title">Monitoreo e Inteligencia<svg class="nav-mega-arrow" width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="nav-mega-desc">Sigue lo que se publica de tu marca, con análisis de IA.</span>
+                </span>
+              </a>
+              <a href="/agentes-ia" class="nav-mega-item">
+                <span class="nav-mega-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="6.5" width="12" height="9" rx="2.5"/><path d="M10 6.5V3.5M10 3.5a1.2 1.2 0 100-.1z"/><path d="M7.5 10.5v1.5M12.5 10.5v1.5M2.5 9.5V12M17.5 9.5V12"/></svg></span>
+                <span class="nav-mega-txt">
+                  <span class="nav-mega-title">Agentes IA especializados<svg class="nav-mega-arrow" width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="nav-mega-desc">Equipos de agentes de IA para tu área de comunicaciones.</span>
+                </span>
+              </a>
+            </div>
+          </div>
+        </li>
+        <li class="nav-has-dropdown" data-module="planes" style="display:none">
+          <a href="/planes" class="nav-drop-trigger">
+            <span class="nav-link-inner"><span class="nav-link-text">Planes</span><span class="nav-link-text nav-link-text--alt">Planes</span></span>
+            <svg class="nav-caret" width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M2.5 4L5.5 7L8.5 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <div class="nav-dropdown">
+            <div class="nav-mega">
+              <a href="/planes" class="nav-mega-item">
+                <span class="nav-mega-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="5.5" height="5.5" rx="1.2"/><rect x="11" y="3.5" width="5.5" height="5.5" rx="1.2"/><rect x="3.5" y="11" width="5.5" height="5.5" rx="1.2"/><rect x="11" y="11" width="5.5" height="5.5" rx="1.2"/></svg></span>
+                <span class="nav-mega-txt">
+                  <span class="nav-mega-title">Ver todos los planes<svg class="nav-mega-arrow" width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="nav-mega-desc">Compara todas las opciones en una sola vista.</span>
+                </span>
+              </a>
+              <a href="/planes/corporativos" class="nav-mega-item">
+                <span class="nav-mega-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16.5V5a1 1 0 011-1h6a1 1 0 011 1v11.5"/><path d="M12 8.5h3a1 1 0 011 1v7"/><path d="M3 16.5h14"/><path d="M6.5 7h3M6.5 10h3M6.5 13h3"/></svg></span>
+                <span class="nav-mega-txt">
+                  <span class="nav-mega-title">Equipos corporativos<svg class="nav-mega-arrow" width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="nav-mega-desc">Toda la operación de comunicaciones en un lugar.</span>
+                </span>
+              </a>
+              <a href="/planes/agencias" class="nav-mega-item">
+                <span class="nav-mega-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="7.5" cy="8" r="2.3"/><path d="M3.5 16c0-2.2 1.8-3.6 4-3.6s4 1.4 4 3.6"/><path d="M13.2 6.4a2.2 2.2 0 010 4"/><path d="M14.3 12.5c1.8.3 3.2 1.5 3.2 3.5"/></svg></span>
+                <span class="nav-mega-txt">
+                  <span class="nav-mega-title">Agencias de comunicaciones<svg class="nav-mega-arrow" width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="nav-mega-desc">Multi-cliente con métricas de IA exclusivas.</span>
+                </span>
+              </a>
+              <a href="/planes/startups-pymes" class="nav-mega-item">
+                <span class="nav-mega-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3c2.4 1.3 3.8 3.7 3.8 6.6 0 1.2-.2 2.3-.7 3.2H6.9c-.5-.9-.7-2-.7-3.2C6.2 6.7 7.6 4.3 10 3z"/><circle cx="10" cy="8.2" r="1.4"/><path d="M7.5 13l-1.3 3.2M12.5 13l1.3 3.2"/></svg></span>
+                <span class="nav-mega-txt">
+                  <span class="nav-mega-title">Startups &amp; Pymes<svg class="nav-mega-arrow" width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="nav-mega-desc">Visibilidad profesional sin equipo dedicado.</span>
+                </span>
+              </a>
+            </div>
+          </div>
+        </li>
+        <li data-module="blog" style="display:none"><a href="/blog"><span class="nav-link-inner"><span class="nav-link-text">Blog</span><span class="nav-link-text nav-link-text--alt">Blog</span></span></a></li>
       </ul>
     </div>
     <div class="nav-cta">
-      <a href="https://app.meddia.io/" class="btn-ghost">Ingresar</a>
+      <a href="https://app.meddia.io/" class="btn-ghost">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.4-6.5 8-6.5s8 2.5 8 6.5"/></svg>
+        Ingresar
+      </a>
       <a href="https://tools.meddia.io/meetings/meddiacloud/reunion-demo-meddiacloud" class="btn-dark">
         Agendar DEMO
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -3257,16 +3482,14 @@ footer{
 <!-- CTA FINAL -->
 <section class="cta-final">
   <div class="section-container">
-    <div class="section-eyebrow">Somos Meddia</div>
-    <h2 class="section-h2 cta-h2">Tu reputación en IA y medios, <em>una sola plataforma.</em></h2>
-    <p class="cta-sub">Gestiona la relación con los medios, monitorea tu impacto, fortalece tu reputación en agentes de IA y automatiza tu operación de comunicaciones desde una sola plataforma.</p>
-    <div class="cta-actions">
-      <a href="https://tools.meddia.io/meetings/meddiacloud/reunion-demo-meddiacloud" class="btn-cream">
-        Agendar DEMO
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
+    <div class="section-eyebrow">Agenda tu demo</div>
+    <h2 class="section-h2 cta-h2">Toma el control de la <em>reputación de tu marca.</em></h2>
+    <p class="cta-sub">Te mostramos Meddia en vivo, con tu caso sobre la mesa: prensa, monitoreo y reputación en IA en una sola plataforma.</p>
+    <p class="cta-proof cta-proof--top">30 minutos · Sin compromiso · Adaptada a tu organización</p>
+    <div class="cta-calendar">
+      <div class="meetings-iframe-container" data-src="https://tools.meddia.io/meetings/meddiacloud/reunion-demo-meddiacloud?embed=true"></div>
+      <script type="text/javascript" src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js"></script>
     </div>
-    <p class="cta-proof">30 minutos · Sin compromiso · Adaptada a tu organización</p>
   </div>
 </section>
 
@@ -3277,9 +3500,27 @@ footer{
         <a href="/" class="footer-logo"><img src="assets/logo-meddia.png" alt="Meddia"></a>
         <p class="footer-claim">Tecnología para gestionar la reputación en la era de la IA.</p>
         <div class="footer-socials">
-          <a href="#" class="social-btn" aria-label="LinkedIn"><svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor"><path d="M3.2 2C3.2 2.88 2.48 3.6 1.6 3.6S0 2.88 0 2 .72.4 1.6.4 3.2 1.12 3.2 2zM0 5h3.2v9H0V5zm5.1 0H8v1.2c.5-.9 1.6-1.4 2.8-1.4 2.5 0 3.2 1.6 3.2 3.8V14h-3.2V9.5c0-.9 0-2.1-1.3-2.1s-1.5 1-1.5 2v4.6H5.1V5z"/></svg></a>
+          <a href="https://www.linkedin.com/company/meddiaio" class="social-btn" aria-label="LinkedIn" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor"><path d="M3.2 2C3.2 2.88 2.48 3.6 1.6 3.6S0 2.88 0 2 .72.4 1.6.4 3.2 1.12 3.2 2zM0 5h3.2v9H0V5zm5.1 0H8v1.2c.5-.9 1.6-1.4 2.8-1.4 2.5 0 3.2 1.6 3.2 3.8V14h-3.2V9.5c0-.9 0-2.1-1.3-2.1s-1.5 1-1.5 2v4.6H5.1V5z"/></svg></a>
           <a href="#" class="social-btn" aria-label="Instagram"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="1" y="1" width="12" height="12" rx="3"/><circle cx="7" cy="7" r="3"/><circle cx="10.5" cy="3.5" r="0.5" fill="currentColor" stroke="none"/></svg></a>
         </div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-ttl">Explora</div>
+        <ul class="footer-links">
+          <li><a href="/que-es-meddia">Qué es Meddia</a></li>
+          <li><a href="/para-quien">Para quién es Meddia</a></li>
+          <li><a href="/faq">Preguntas frecuentes</a></li>
+          <li><a href="/contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-ttl">Legal</div>
+        <ul class="footer-links">
+          <li><a href="/politica-de-privacidad">Política de Privacidad</a></li>
+          <li><a href="/terminos-y-condiciones">Términos y Condiciones</a></li>
+          <li><a href="/politica-de-cookies">Política de Cookies</a></li>
+          <li><a href="/dpa">Acuerdo de Procesamiento de Datos</a></li>
+        </ul>
       </div>
       <div class="footer-newsletter-col">
         <div class="footer-col-ttl">IA, reputación y comunicación</div>
@@ -3297,7 +3538,7 @@ footer{
       </div>
     </div>
     <div class="footer-btm">
-      <span class="footer-legal">© 2026 Meddia · Press Hub SpA · RUT 77.861.768-4 · Santiago, Chile</span>
+      <span class="footer-legal">© 2026 Meddia. Todos los derechos reservados. Américo Vespucio Sur 700 piso 4, Las Condes, Santiago, Chile.</span>
       <span class="footer-legal">Acelerada en AceleraLatam</span>
     </div>
   </div>
@@ -3904,5 +4145,8 @@ function footerNewsletterSubmit(e){
 }
 </script>
 
+
+<!-- Chat widget IA Meddia -->
+<script src="/assets/chat-widget.js"></script>
 </body>
 </html>
