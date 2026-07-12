@@ -196,10 +196,7 @@
   }
 
   function showWelcome() {
-    var msg = currentMode === 'ventas'
-      ? '¡Hola! Soy el asistente de ventas de Meddia. ¿En qué tipo de organización trabajas? Cuéntame un poco sobre tu necesidad y te ayudo a evaluar si somos la solución correcta.'
-      : '¡Hola! Soy el asistente de Meddia. Puedo responder dudas sobre nuestra plataforma — reputación en IA, gestión de prensa y más. ¿En qué te puedo ayudar?';
-    appendMessage('bot', msg);
+    appendMessage('bot', '¡Hola! ¿En qué te puedo ayudar?');
   }
 
   function appendMessage(role, text) {
