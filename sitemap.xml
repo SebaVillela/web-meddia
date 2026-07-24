@@ -10,4 +10,13 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://www.meddia.io/"/>
   </url>
 
+
+  <url>
+    <loc>https://www.meddia.io/reputacion-ia</loc>
+    <lastmod>2026-07-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.meddia.io/reputacion-ia"/>
+  </url>
+
 </urlset>
