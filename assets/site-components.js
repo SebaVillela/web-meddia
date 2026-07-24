@@ -169,32 +169,35 @@
 
   // ── FOOTER ─────────────────────────────────────────────────────────────────
   var FOOTER_CSS = `
-    .sc-footer{background:#FAF9F6;color:#1F1B17;padding:64px 0 32px;border-top:1px solid #E8E5DE}
-    .sc-footer-in{max-width:1240px;margin:0 auto;padding:0 40px}
-    .sc-footer-top{display:grid;grid-template-columns:1fr auto auto 1fr;gap:48px;align-items:start;margin-bottom:48px}
-    .sc-footer-logo img{height:28px;width:auto;display:block;margin-bottom:14px}
-    .sc-footer-claim{font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:300;font-size:18px;color:#2E2A24;line-height:1.5;margin-bottom:24px;max-width:280px;letter-spacing:-0.015em}
+    .sc-footer{background:var(--paper,#FAF9F6);color:var(--ink,#1F1B17);padding:96px 40px 48px;border-top:1px solid var(--line,#E8E5DE)}
+    .sc-footer-in{max-width:1240px;margin:0 auto}
+    .sc-footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1.4fr;gap:64px;align-items:start;margin-bottom:80px}
+    .sc-footer-logo{display:block;margin-bottom:24px}
+    .sc-footer-logo img{height:28px;width:auto}
+    .sc-footer-claim{font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:300;font-size:18px;color:var(--ink-2,#2E2A24);line-height:1.5;margin-bottom:32px;max-width:280px;letter-spacing:-0.015em}
     .sc-footer-socials{display:flex;gap:8px}
-    .sc-social-btn{width:36px;height:36px;border-radius:50%;background:transparent;border:1px solid #E8E5DE;display:flex;align-items:center;justify-content:center;text-decoration:none;color:#5A554D;transition:all 0.2s}
-    .sc-social-btn:hover{background:#1F1B17;border-color:#1F1B17;color:#FAF9F6}
-    .sc-footer-col-ttl{font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:#8F8A80;margin-bottom:20px}
+    .sc-social-btn{width:36px;height:36px;border-radius:50%;background:transparent;border:1px solid var(--line,#E8E5DE);display:flex;align-items:center;justify-content:center;text-decoration:none;color:var(--ink-3,#5A554D);transition:all 0.2s}
+    .sc-social-btn:hover{background:var(--ink,#1F1B17);border-color:var(--ink,#1F1B17);color:var(--paper,#FAF9F6)}
+    .sc-footer-col-ttl{font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-4,#8F8A80);margin-bottom:20px}
     .sc-footer-links{list-style:none;display:flex;flex-direction:column;gap:12px}
-    .sc-footer-links a{font-size:14px;color:#2E2A24;text-decoration:none;transition:color 0.2s;letter-spacing:-0.005em}
-    .sc-footer-links a:hover{color:#E8197D}
-    .sc-footer-newsletter-desc{font-size:14px;color:#8F8A80;line-height:1.55;letter-spacing:-0.005em;max-width:360px;text-align:right}
-    .sc-footer-form{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
-    .sc-footer-input{flex:1;min-width:160px;padding:10px 14px;background:#fff;border:1px solid #E8E5DE;border-radius:6px;color:#1F1B17;font-family:inherit;font-size:14px;outline:none;transition:border-color 0.2s;letter-spacing:-0.005em}
-    .sc-footer-input::placeholder{color:#C9C5BB}
-    .sc-footer-input:focus{border-color:#1F1B17}
-    .sc-footer-submit{padding:10px 18px;background:#1F1B17;color:#FAF9F6;border:none;border-radius:6px;font-family:inherit;font-size:13px;font-weight:450;cursor:pointer;white-space:nowrap;transition:background 0.2s;letter-spacing:-0.005em;display:inline-flex;align-items:center;gap:7px}
-    .sc-footer-submit:hover{background:#E8197D}
-    .sc-footer-newsletter-col{display:flex;flex-direction:column;gap:14px;justify-self:end;align-items:flex-end;text-align:right}
-    .sc-footer-ok{font-size:13px;color:#E8197D;display:none;text-align:right}
+    .sc-footer-links a{font-size:14px;color:var(--ink-2,#2E2A24);text-decoration:none;transition:color 0.2s;letter-spacing:-0.005em}
+    .sc-footer-links a:hover{color:var(--magenta,#E8197D)}
+    .sc-footer-newsletter-col{display:flex;flex-direction:column;gap:16px;align-items:flex-end;text-align:right}
+    .sc-footer-newsletter-desc{font-size:14px;color:var(--ink-4,#8F8A80);line-height:1.55;letter-spacing:-0.005em;max-width:420px}
+    .sc-footer-form{display:flex;flex-direction:column;gap:10px;width:100%}
+    .sc-footer-form-row{display:flex;gap:10px;flex-wrap:wrap}
+    .sc-footer-input{flex:1;min-width:160px;padding:10px 14px;background:#fff;border:1px solid var(--line,#E8E5DE);border-radius:6px;color:var(--ink,#1F1B17);font-family:inherit;font-size:14px;outline:none;transition:border-color 0.2s;letter-spacing:-0.005em}
+    .sc-footer-input::placeholder{color:var(--ink-5,#C9C5BB)}
+    .sc-footer-input:focus{border-color:var(--magenta,#E8197D)}
+    .sc-footer-submit{padding:10px 18px;background:var(--ink,#1F1B17);color:var(--paper,#FAF9F6);border:none;border-radius:6px;font-family:inherit;font-size:13px;font-weight:450;cursor:pointer;white-space:nowrap;transition:background 0.2s;letter-spacing:-0.005em;display:inline-flex;align-items:center;gap:7px}
+    .sc-footer-submit:hover{background:var(--magenta,#E8197D)}
+    .sc-footer-ok{font-size:13px;color:var(--magenta,#E8197D);display:none;text-align:right}
     .sc-footer-ok.is-on{display:block}
-    .sc-footer-btm{border-top:1px solid #E8E5DE;padding-top:32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
-    .sc-footer-legal{font-size:12px;color:#8F8A80;letter-spacing:-0.005em}
-    @media(max-width:900px){.sc-footer-top{grid-template-columns:1fr 1fr;gap:32px}.sc-footer-in{padding:0 24px}}
-    @media(max-width:600px){.sc-footer-top{grid-template-columns:1fr}.sc-footer-form{flex-direction:column}.sc-footer-newsletter-col{align-items:flex-start;text-align:left}.sc-footer-newsletter-desc{text-align:left}}
+    .sc-footer-btm{border-top:1px solid var(--line,#E8E5DE);padding-top:32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px}
+    .sc-footer-legal{font-size:12px;color:var(--ink-4,#8F8A80);letter-spacing:-0.005em}
+    @media(max-width:1024px){.sc-footer{padding:96px 24px 48px}}
+    @media(max-width:900px){.sc-footer-top{grid-template-columns:1fr 1fr;gap:48px}}
+    @media(max-width:600px){.sc-footer-top{grid-template-columns:1fr;gap:48px}.sc-footer-form-row{flex-direction:column}.sc-footer-newsletter-col{align-items:flex-start;text-align:left}.sc-footer-newsletter-desc{text-align:left}.sc-footer-ok{text-align:left}}
   `;
 
   function buildFooter() {
@@ -247,10 +250,12 @@
               <div class="sc-footer-col-ttl">IA, reputación y comunicación</div>
               <p class="sc-footer-newsletter-desc">Noticias y análisis sobre cómo la IA está redefiniendo la reputación corporativa. Sin spam.</p>
               <form class="sc-footer-form" id="sc-footer-form">
-                <input type="email" class="sc-footer-input" placeholder="tu@email.com" required autocomplete="email" aria-label="Tu email">
-                <button type="submit" class="sc-footer-submit">Suscribirse <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                <div class="sc-footer-form-row">
+                  <input type="email" class="sc-footer-input" placeholder="tu@email.com" required autocomplete="email" aria-label="Tu email">
+                  <button type="submit" class="sc-footer-submit">Suscribirse <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                </div>
+                <p class="sc-footer-ok" id="${okId}">¡Gracias! Te avisamos con lo que vale la pena leer.</p>
               </form>
-              <p class="sc-footer-ok" id="${okId}">¡Gracias! Te avisamos con lo que vale la pena leer.</p>
             </div>
           </div>
           <div class="sc-footer-btm">
